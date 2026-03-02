@@ -68,19 +68,7 @@ public partial class NewScript : Node3D
 			return GD.Load<Texture2D>(BrickTexturePath);
 		}
 
-		const string generatedAbsolutePath = "/home/kenwi/.cursor/projects/home-kenwi-new-game-project/assets/brick_single_albedo_natural.png";
-		if (!FileAccess.FileExists(generatedAbsolutePath))
-		{
-			return null;
-		}
-
-		Image image = Image.LoadFromFile(generatedAbsolutePath);
-		if (image == null || image.IsEmpty())
-		{
-			return null;
-		}
-
-		return ImageTexture.CreateFromImage(image);
+		return null;
 	}
 
 	private Texture2D? TryLoadFloorTexture()
@@ -90,19 +78,7 @@ public partial class NewScript : Node3D
 			return GD.Load<Texture2D>(FloorTexturePath);
 		}
 
-		const string generatedAbsolutePath = "/home/kenwi/.cursor/projects/home-kenwi-new-game-project/assets/ground_natural_earth_seamless.png";
-		if (!FileAccess.FileExists(generatedAbsolutePath))
-		{
-			return null;
-		}
-
-		Image image = Image.LoadFromFile(generatedAbsolutePath);
-		if (image == null || image.IsEmpty())
-		{
-			return null;
-		}
-
-		return ImageTexture.CreateFromImage(image);
+		return null;
 	}
 
 	private void ApplyFloorMaterial()
