@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cqow47bch5ocs"]
+
+[ext_resource type="Script" uid="uid://gpxf60qva1e2" path="res://NewScript.cs" id="1_jq6xm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="Environment" id="Environment_ambient"]
+ambient_light_source = 2
+ambient_light_color = Color(0.5, 0.52, 0.58, 1)
+ambient_light_energy = 0.55
+
+[node name="Main" type="Node3D" unique_id=1679686204]
+script = ExtResource("1_jq6xm")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ambient")
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1596684693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=506664490]
+shape = SubResource("BoxShape3D_floor")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1328936558]
+mesh = SubResource("BoxMesh_floor")
+
+[node name="Launcher" type="Marker3D" parent="." unique_id=962914265]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2000003, -5.5924253)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1908012087]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 5.5, 18)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=129166065]
+transform = Transform3D(0.19741404, -0.98019964, -0.0153823495, 0.63361794, 0.1156074, 0.76495963, -0.7480347, -0.16076007, 0.6438945, 0, 14, 0)
+light_energy = 1.7
+shadow_enabled = true
+
+[node name="WallOrigin" type="Marker3D" parent="." unique_id=932221304]
